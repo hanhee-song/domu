@@ -182,7 +182,7 @@ Syntax: ```DOMNodeCollection.off(eventName)```
 
 Removes the event handler for ```eventName``` from each element in the ```DOMNodeCollection```.
 
-### u.ajax
+### ajax
 
 #### ```u.ajax```
 
