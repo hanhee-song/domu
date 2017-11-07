@@ -15,7 +15,7 @@ To use DOMutil in your project, run ```webpack --watch lib/main.js lib/dom_util.
 ```HTML
 <head>
   ...
-  <script type="text/javascript" src="../lib/dom_util.js"></script>
+  <script type="text/javascript" src="lib/dom_util.js"></script>
 </head>
 ```
 
@@ -37,6 +37,13 @@ To use DOMutil in your project, run ```webpack --watch lib/main.js lib/dom_util.
 * [addClass](#addClass)
 * [removeClass](#removeClass)
 * [toggleClass](#toggleClass)
+
+#### Event Handlers
+* [on](#on)
+* [off](#off)
+
+#### ajax
+* [u.ajax](#u.ajax)
 
 #### u
 
@@ -150,3 +157,49 @@ Takes a string as an argument and removes the given class from the list of class
 Syntax: ```DOMNodeCollection.toggleClass(value)```
 
 Takes a string as an argument and toggles the class for each element in the ```DOMNodeCollection```.
+
+### Event Handlers
+
+#### ```on```
+
+Syntax: ```DOMNodeCollection.on(eventName, callback)```
+
+Attaches an event handler for ```eventName``` to each element in the ```DOMNodeCollection``` that runs the given ```callback``` upon activation.
+
+Example:
+
+```javascript
+// change the innerText of the HTML element with the id of 'selected-p'
+// to the text of the clicked paragraph
+u("p").on("click", (e) => {
+  u("#selected-p").html(e.target.innerText)
+})
+```
+
+#### ```off```
+
+Syntax: ```DOMNodeCollection.off(eventName)```
+
+Removes the event handler for ```eventName``` from each element in the ```DOMNodeCollection```.
+
+### ajax
+
+#### ```u.ajax```
+
+Syntax: ```u.ajax(options)```
+
+Sends an XMLHttpRequest with the given options.
+
+Example:
+
+```javascript
+u.ajax({
+  method: "GET",
+  url: "/api/channels",
+  data: { channel },
+  dataType: "json",
+  error: (e) => {
+    console.log(e);
+  }
+})
+```
