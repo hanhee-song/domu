@@ -9,7 +9,7 @@ DOMUtil is a JavaScript library for streamlining DOM interaction. Features inclu
 * Queuing functions until the document is loaded
 * Making XML HTTP requests
 
-# Getting Started
+## Getting Started
 
 To use DOMutil in your project, run ```webpack --watch lib/main.js lib/dom_util.js```. In your HTML file, include
 ```HTML
@@ -19,19 +19,26 @@ To use DOMutil in your project, run ```webpack --watch lib/main.js lib/dom_util.
 </head>
 ```
 
-# API
+## API
 
 * [u](#u)
 
-## DOM Traversal
+#### DOM Traversal
 * [parent](#parent)
 * [children](#children)
 * [find](#find)
 
-## DOM Manipulation
+#### DOM Manipulation
 * [each](#each)
+* [html](#html)
+* [empty](#empty)
+* [append](#append)
+* [attr](#attr)
+* [addClass](#addClass)
+* [removeClass](#removeClass)
+* [toggleClass](#toggleClass)
 
-### u
+#### u
 
 This library uses ```u``` as a wrapper for all of its methods. It has the following uses:
 * selecting elements via CSS selectors: selector arguments, e.g. ```u("li")```, will return a ```DOMNodeCollection``` object, which holds an array of ```HTMLElement```s.
@@ -43,9 +50,9 @@ This library uses ```u``` as a wrapper for all of its methods. It has the follow
   })
 ```
 
-## DOM Traversal
+### DOM Traversal
 
-### ```parent```
+#### ```parent```
 
 Syntax: ```DOMNodeCollection.parent()```
 
@@ -58,7 +65,7 @@ Example:
 u("li").parent();
 ```
 
-### ```children```
+#### ```children```
 
 Syntax: ```DOMNodeCollection.children()```
 
@@ -71,7 +78,7 @@ Example:
 u("#root").children();
 ```
 
-### ```find```
+#### ```find```
 
 Syntax: ```DOMNodeCollection.find(selector)```
 
@@ -85,9 +92,9 @@ Example:
 u("ul").find(".message-index-item");
 ```
 
-## DOM Manipulation
+### DOM Manipulation
 
-### ```each```
+#### ```each```
 
 Syntax: ```DOMNodeCollection.each(callback)```
 
@@ -101,3 +108,45 @@ u("li").each(el => {
   el.remove();
 })
 ```
+
+#### ```html```
+
+Syntax: ```DOMNodeCollection.html([text])```
+
+Returns the HTML content of the first element in the ```DOMNodeCollection```. If passed a string as an optional argument, it will change the HTML content of each element to the given string.
+
+#### ```empty```
+
+Syntax: ```DOMNodeCollection.empty()```
+
+Empties the HTML content of each element. Equivalent to ```DOMNodeCollection.html("")```.
+
+#### ```append```
+
+Syntax: ```DOMNodeCollection.append(argument)```
+
+Appends a ```string```, ```HTMLElement```, or ```DOMNodeCollection``` object to the end of each element.
+
+#### ```attr```
+
+Syntax: ```DOMNodeCollection.attr(property[, value])```
+
+Returns the value of the given attribute of the first element in the ```DOMNodeCollection```. If an optional value argument is provided, all elements in the ```DOMNodeCollection``` are given the value as the property.
+
+#### ```addClass```
+
+Syntax: ```DOMNodeCollection.addClass(value)```
+
+Takes a string as an argument and appends the given class to the list of classes for each element in the ```DOMNodeCollection```.
+
+#### ```removeClass```
+
+Syntax: ```DOMNodeCollection.removeClass(value)```
+
+Takes a string as an argument and removes the given class from the list of classes for each element in the ```DOMNodeCollection```.
+
+#### ```toggleClass```
+
+Syntax: ```DOMNodeCollection.toggleClass(value)```
+
+Takes a string as an argument and toggles the class for each element in the ```DOMNodeCollection```.
