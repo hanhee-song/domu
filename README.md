@@ -42,8 +42,8 @@ To use DOMutil in your project, run ```webpack --watch lib/main.js lib/dom_util.
 * [on](#on)
 * [off](#off)
 
-#### ajax
-* [u.ajax](#u.ajax)
+#### u.ajax
+* [ajax](#ajax)
 
 #### u
 
@@ -182,7 +182,7 @@ Syntax: ```DOMNodeCollection.off(eventName)```
 
 Removes the event handler for ```eventName``` from each element in the ```DOMNodeCollection```.
 
-### ajax
+### u.ajax
 
 #### ```u.ajax```
 
