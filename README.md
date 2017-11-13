@@ -9,6 +9,8 @@ DOMU is a JavaScript library for streamlining DOM interaction. Features include:
 * Queuing functions until the document is loaded
 * Making XML HTTP requests
 
+Check out [DOMU-Tiles](https://hanhee-song.github.io/DOMU-Tiles/) for a live example of DOMU in action!
+
 ## Getting Started
 
 To use DOMU in your project, download and include ```dist/dom_util``` in your HTML file.
